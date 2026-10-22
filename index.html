@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolos Caseiros — Bolos da Tia Zezé</title>
+    <!-- Se você usa Tailwind CSS ou outro estilo, coloque aqui -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50 text-stone-800">
+
+    <div class="max-w-xl mx-auto p-4">
+        <header class="text-center my-6">
+            <h1 class="text-3xl font-bold text-amber-900">Bolos da Tia Zezé</h1>
+            <p class="text-stone-600">Escolha seus bolos e faça seu pedido!</p>
+        </header>
+
+        <!-- Área onde o cardápio vai carregar via JavaScript -->
+        <main id="app">
+            <p class="text-center py-10">Carregando cardápio...</p>
+        </main>
+    </div>
+
+    <script>
+        // URL de implantação do seu Google Apps Script (aquele final /exec)
+        const URL_API = "SUA_URL_DO_APPS_SCRIPT_AQUI";
+
+        // Exemplo de como você pode buscar os dados do cardápio ao abrir a página:
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Se você configurar seu Apps Script para responder a requisições GET com o cardápio e config:
+                // const resposta = await fetch(URL_API);
+                // const dados = await resposta.json();
+                
+                // Aqui você renderiza os produtos na tela dinamicamente
+                document.getElementById('app').innerHTML = `
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-xl font-semibold mb-4">Faça seu pedido</h2>
+                        <p>Seu sistema está pronto para ser conectado ao Google Sheets!</p>
+                    </div>
+                `;
+            } catch (erro) {
+                console.error("Erro ao carregar dados:", erro);
+            }
+        });
+    </script>
+</body>
+</html>
